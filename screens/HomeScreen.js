@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, TextInput, touchableOpacity } from 'react-nativ
 export default class HomeScreen extends Component{
 	constructor(){
 	    super();
-	    this.state={
+	    this.state=({
 	      text: '',
 	      displayText: '',
 	      isSearchPressed: '',
@@ -13,7 +13,7 @@ export default class HomeScreen extends Component{
 	  	  lexicalCategory: '',
 	   	  examples:[],
 	  	  definition: ''
-	    };
+	    });
   	}
   	getWord=(word)=>{
 		    var text = text.toLowerCase()
@@ -56,24 +56,24 @@ export default class HomeScreen extends Component{
 				 </View>
 
 				<TextInput
-		          style={ styles.inputBox }
-		          onChangeText={text => {
-		          	this.setState({
-		          		text:text,
-		          		isSearchPressed: false,
-		          		word: "loading...",
-		          		lexicalCategory: '',
-		          		examples:[],
-		          		definition: ""
-		          	});
-		          }}
-		          value={this.state.text}
-        		/>
+          style={ styles.inputBox }
+          onChangeText={text => {
+          	this.setState({
+          		text:text,
+          		isSearchPressed: false,
+          		word: "loading...",
+          		lexicalCategory: '',
+          		examples:[],
+          		definition: ""
+          	});
+          }}
+          value={this.state.text}
+    		/>
 
             <View style={styles.detailsContainer}>
               <Text style={{FontSize:20}}>{
                 this.state.isSearchPressed && this.state.word === "Loading..."
-                ? this.state.word:""
+                ? this.state.word : ""
               }
               </Text>
               {
@@ -95,6 +95,7 @@ export default class HomeScreen extends Component{
                       {this.state.lexicalCategory}
                       </Text>
                     </View>
+                  </View>
 
         		<touchableOpacity 
         		style={styles.searchButton} 
