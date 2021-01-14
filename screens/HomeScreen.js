@@ -96,6 +96,8 @@ export default class HomeScreen extends Component{
                       </Text>
                     </View>
                   </View>
+		)
+	      }
 
         		<touchableOpacity 
         		style={styles.searchButton} 
